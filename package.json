@@ -1,0 +1,116 @@
+{
+  "name": "vsc-ember-generator",
+  "description": "",
+  "version": "0.0.3",
+  "displayName": "Ember generator for VS Code",
+  "publisher": "productive",
+  "icon": "icons/logo.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/.ember-cli"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsc-ember-generator.generateComponent",
+        "title": "component"
+      },
+      {
+        "command": "vsc-ember-generator.generateTemplateOnlyComponent",
+        "title": "component (template-only)"
+      },
+      {
+        "command": "vsc-ember-generator.generateHelper",
+        "title": "helper"
+      },
+      {
+        "command": "vsc-ember-generator.generateClassBasedHelper",
+        "title": "helper (class-based)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "submenu": "vscembergeneratorfiles",
+          "group": "1_vscembergeneratorfiles"
+        }
+      ],
+      "vscembergeneratorfiles": [
+        {
+          "command": "vsc-ember-generator.generateComponent",
+          "group": "1_generatorGroup"
+        },
+        {
+          "command": "vsc-ember-generator.generateTemplateOnlyComponent",
+          "group": "1_generatorGroup"
+        },
+        {
+          "command": "vsc-ember-generator.generateHelper",
+          "group": "2_generatorGroup"
+        },
+        {
+          "command": "vsc-ember-generator.generateClassBasedHelper",
+          "group": "2_generatorGroup"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "vscembergeneratorfiles",
+        "label": "Ember generate..."
+      }
+    ],
+    "configuration": {
+      "title": "EmberGenerator",
+      "properties": {
+        "emberGenerator.templateOnlyComponentSwitch": {
+          "type": "string",
+          "default": "--template-only",
+          "description": "Switch used in ember-cli command for generating template-only component."
+        },
+        "emberGenerator.classBasedHelperSwitch": {
+          "type": "string",
+          "default": "--class",
+          "description": "Switch used in ember-cli command for generating class-based helpers."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/resolve": "^1.20.2",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "esbuild": "^0.17.4",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "resolve": "^1.22.1"
+  }
+}
