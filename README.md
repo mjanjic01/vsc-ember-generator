@@ -2,6 +2,8 @@
 
 Ember component generator contextual menu
 
+Disclaimer: this is a codebase-specific extension, it will be modified and published in the future. But it's still useable now :)
+
 ## Features
 
 <!-- Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
