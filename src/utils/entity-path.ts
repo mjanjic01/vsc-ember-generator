@@ -8,5 +8,5 @@ export function resolveEntityData(filePath: string, workspacePath: string, entit
   let entityRelativePath = relativePath.split(`/${entity}`)[1];
   entityRelativePath = entityRelativePath.startsWith('/') ? entityRelativePath.substring(1) : entityRelativePath;
 
-  return relativePath;
+  return entityRelativePath;
 }
