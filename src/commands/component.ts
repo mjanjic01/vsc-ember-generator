@@ -15,10 +15,10 @@ export async function generateComponent(fileUri: vscode.Uri, opts?: {templateOnl
   }
 
   const workspacePath = workspaceFolder?.uri.path;
-  let componentData;
+  let relativePath;
 
   try {
-    componentData = resolveEntityData(filePath, workspacePath, 'components');
+    relativePath = resolveEntityData(filePath, workspacePath, 'components');
   } catch (e: any) {
     vscode.window.showInformationMessage(e.message);
     return;
@@ -36,11 +36,6 @@ export async function generateComponent(fileUri: vscode.Uri, opts?: {templateOnl
     return;
   }
 
-  const {
-    relativePath,
-    isBundleEntity,
-    bundleName
-  } = componentData;
   const fullComponentPath = [relativePath, input].filter(Boolean).join('/');
 
   void invokeEmberCliCommand(
@@ -52,6 +47,5 @@ export async function generateComponent(fileUri: vscode.Uri, opts?: {templateOnl
       '--pod'
     ]
     .concat(opts?.templateOnly ? templateOnlyComponentSwitch : [])
-    .concat(isBundleEntity ? `--bundle=${bundleName}` : [])
   );
 }

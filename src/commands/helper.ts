@@ -15,10 +15,10 @@ export async function generateHelper(fileUri: vscode.Uri, opts?: {classBased: bo
   }
 
   const workspacePath = workspaceFolder?.uri.path;
-  let helperData;
+  let relativePath;
 
   try {
-    helperData = resolveEntityData(filePath, workspacePath, 'helpers');
+    relativePath = resolveEntityData(filePath, workspacePath, 'helpers');
   } catch (e: any) {
     vscode.window.showInformationMessage(e.message);
     return;
@@ -36,11 +36,6 @@ export async function generateHelper(fileUri: vscode.Uri, opts?: {classBased: bo
     return;
   }
 
-  const {
-    relativePath,
-    isBundleEntity,
-    bundleName
-  } = helperData;
   const fullHelperPath = [relativePath, input].filter(Boolean).join('/');
 
   void invokeEmberCliCommand(
@@ -51,6 +46,5 @@ export async function generateHelper(fileUri: vscode.Uri, opts?: {classBased: bo
       fullHelperPath
     ]
     .concat(opts?.classBased ? classBasedHelperSwitch : [])
-    .concat(isBundleEntity ? `--bundle=${bundleName}` : [])
   );
 }

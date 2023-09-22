@@ -72,12 +72,12 @@
       "properties": {
         "emberGenerator.templateOnlyComponentSwitch": {
           "type": "string",
-          "default": "--template-only",
+          "default": "--no-component-class",
           "description": "Switch used in ember-cli command for generating template-only component."
         },
         "emberGenerator.classBasedHelperSwitch": {
           "type": "string",
-          "default": "--class",
+          "default": "--with-helper-class",
           "description": "Switch used in ember-cli command for generating class-based helpers."
         }
       }
