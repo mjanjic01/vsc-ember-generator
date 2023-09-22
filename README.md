@@ -6,68 +6,24 @@ Disclaimer: this is a codebase-specific extension, it will be modified and publi
 
 ## Features
 
-<!-- Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension adds options for generating Ember components and helpers to the contextual menu in the VS Code file explorer.
 
-For example if there is an image subfolder under your extension project workspace:
+Commands invoked from the contextual menu will run the corresponding Ember CLI command:
 
-\!\[feature X\]\(images/feature-x.png\)
+* `component`: ember g component --pod {templateOnlyComponentSwitch} (path + component name)
+* `component (template-only)`: ember g component --pod (path + component name)
+* `helper`: ember g helper (path + helper name)
+* `helper (class-based)`: ember g helper {classBasedHelperSwitch} (path + helper name)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
+![Generating a component from the file explorer](images/feature-generate-component.gif)
 
 ## Requirements
 
-<!-- If you have any requirements or dependencies, add a section describing those and how to install and configure them. -->
+  * VS Code > 1.74.0
 
 ## Extension Settings
-<!--
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something. -->
-
-<!-- ## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!** -->
+* `emberGenerator.classBasedHelperSwitch`: CLI command switch used when selecting the `Ember generate... > component` option
+* `emberGenerator.templateOnlyComponentSwitch`: CLI command switch used when selecting the `Ember generate... > helper (class-based)` option
