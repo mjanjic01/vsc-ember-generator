@@ -3,7 +3,7 @@
   "description": "",
   "version": "0.0.3",
   "displayName": "Ember generator for VS Code",
-  "publisher": "productive",
+  "publisher": "mjanjic",
   "repository": {
     "type": "git",
     "url": "https://github.com/mjanjic01/vsc-ember-generator.git"
