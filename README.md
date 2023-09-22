@@ -10,10 +10,10 @@ This extension adds options for generating Ember components and helpers to the c
 
 Commands invoked from the contextual menu will run the corresponding Ember CLI command:
 
-* `component`: ember g component --pod {templateOnlyComponentSwitch} (path + component name)
-* `component (template-only)`: ember g component --pod (path + component name)
-* `helper`: ember g helper (path + helper name)
-* `helper (class-based)`: ember g helper {classBasedHelperSwitch} (path + helper name)
+* `component`: `ember g component --pod {templateOnlyComponentSwitch} (path + component name)`
+* `component (template-only)`: `ember g component --pod (path + component name)`
+* `helper`: `ember g helper (path + helper name)`
+* `helper (class-based)`: `ember g helper {classBasedHelperSwitch} (path + helper name)`
 
 ![Generating a component from the file explorer](images/feature-generate-component.gif)
 
