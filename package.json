@@ -1,7 +1,7 @@
 {
   "name": "vsc-ember-generator",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "displayName": "Ember generator for VS Code",
   "publisher": "mjanjic",
   "repository": {
