@@ -8,10 +8,10 @@ import { generateHelper } from './commands/helper';
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand('vsc-ember-generator.generateComponent', (fileUri: vscode.Uri) => generateComponent(fileUri)),
-    vscode.commands.registerCommand('vsc-ember-generator.generateTemplateOnlyComponent', (fileUri: vscode.Uri) => generateComponent(fileUri, {templateOnly: true})),
+    vscode.commands.registerCommand('vsc-ember-generator.generateComponentWithClass', (fileUri: vscode.Uri) => generateComponent(fileUri, {withClass: true})),
 
     vscode.commands.registerCommand('vsc-ember-generator.generateHelper', (fileUri: vscode.Uri) => generateHelper(fileUri)),
-    vscode.commands.registerCommand('vsc-ember-generator.generateClassBasedHelper', (fileUri: vscode.Uri) => generateHelper(fileUri, {classBased: true})),
+    vscode.commands.registerCommand('vsc-ember-generator.generateHelperClassBased', (fileUri: vscode.Uri) => generateHelper(fileUri, {classBased: true})),
   );
 }
 

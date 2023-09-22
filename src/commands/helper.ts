@@ -4,7 +4,9 @@ import { invokeEmberCliCommand } from '../utils/ember-cli-adapter';
 import { resolveEntityData } from '../utils/entity-path';
 
 const config = vscode.workspace.getConfiguration('emberGenerator');
-const classBasedHelperSwitch = config.get('classBasedHelperSwitch') as string;
+
+const helperCommandOptions = config.get('helperCommandOptions') as string;
+const classHelperCommandOptions = config.get('classHelperCommandOptions') as string;
 
 export async function generateHelper(fileUri: vscode.Uri, opts?: {classBased: boolean}) {
   const filePath = fileUri.path as string;
@@ -43,8 +45,8 @@ export async function generateHelper(fileUri: vscode.Uri, opts?: {classBased: bo
     [
       'generate',
       'helper',
-      fullHelperPath
+      fullHelperPath,
+      ...(opts?.classBased ? classHelperCommandOptions : helperCommandOptions),
     ]
-    .concat(opts?.classBased ? classBasedHelperSwitch : [])
   );
 }

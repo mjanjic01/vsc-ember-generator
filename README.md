@@ -8,10 +8,10 @@ This extension adds options for generating Ember components and helpers to the c
 
 Commands invoked from the contextual menu will run the corresponding Ember CLI command:
 
-* `component`: `ember g component --pod {templateOnlyComponentSwitch} (path + component name)`
-* `component (template-only)`: `ember g component --pod (path + component name)`
-* `helper`: `ember g helper (path + helper name)`
-* `helper (class-based)`: `ember g helper {classBasedHelperSwitch} (path + helper name)`
+* `component`: `ember g component (path + component name) {componentCommandOptions}`
+* `component (with-class)`: `ember g component (path + component name) {classComponentCommandOptions}`
+* `helper`: `ember g helper (path + helper name) {helperCommandOptions}`
+* `helper (class-based)`: `ember g helper (path + helper name) {classHelperCommandOptions}`
 
 ![Generating a component from the file explorer](images/feature-generate-component.gif)
 
@@ -23,5 +23,7 @@ Commands invoked from the contextual menu will run the corresponding Ember CLI c
 
 This extension contributes the following settings:
 
-* `emberGenerator.classBasedHelperSwitch`: CLI command switch used when selecting the `Ember generate... > component` option
-* `emberGenerator.templateOnlyComponentSwitch`: CLI command switch used when selecting the `Ember generate... > helper (class-based)` option
+* `emberGenerator.componentCommandOptions`: command options used when selecting the`Ember generate... > component` option
+* `emberGenerator.classComponentCommandOptions`: command options used when selecting the `Ember generate... > component (with class)` option
+* `emberGenerator.helperCommandOptions`: command options used when selecting the `Ember generate... > helper` option
+* `emberGenerator.classHelperCommandOptions`: command options used when selecting the `Ember generate... > helper (class-based)` option

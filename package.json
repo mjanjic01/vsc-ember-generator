@@ -1,7 +1,7 @@
 {
   "name": "vsc-ember-generator",
   "description": "Create Ember components and helpers from within the VS Code file explorer.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "displayName": "Ember generator for VS Code",
   "publisher": "mjanjic",
   "repository": {
@@ -26,15 +26,15 @@
         "title": "component"
       },
       {
-        "command": "vsc-ember-generator.generateTemplateOnlyComponent",
-        "title": "component (template-only)"
+        "command": "vsc-ember-generator.generateComponentWithClass",
+        "title": "component (with class)"
       },
       {
         "command": "vsc-ember-generator.generateHelper",
         "title": "helper"
       },
       {
-        "command": "vsc-ember-generator.generateClassBasedHelper",
+        "command": "vsc-ember-generator.generateHelperClassBased",
         "title": "helper (class-based)"
       }
     ],
@@ -52,7 +52,7 @@
           "group": "1_generatorGroup"
         },
         {
-          "command": "vsc-ember-generator.generateTemplateOnlyComponent",
+          "command": "vsc-ember-generator.generateComponentWithClass",
           "group": "1_generatorGroup"
         },
         {
@@ -60,7 +60,7 @@
           "group": "2_generatorGroup"
         },
         {
-          "command": "vsc-ember-generator.generateClassBasedHelper",
+          "command": "vsc-ember-generator.generateHelperClassBased",
           "group": "2_generatorGroup"
         }
       ]
@@ -74,15 +74,25 @@
     "configuration": {
       "title": "EmberGenerator",
       "properties": {
-        "emberGenerator.templateOnlyComponentSwitch": {
+        "emberGenerator.componentCommandOptions": {
           "type": "string",
-          "default": "--no-component-class",
-          "description": "Switch used in ember-cli command for generating template-only component."
+          "default": ["--pod", "--typescript", "--no-component-class"],
+          "description": "Options for generating a template-only component"
         },
-        "emberGenerator.classBasedHelperSwitch": {
+        "emberGenerator.classComponentCommandOptions": {
           "type": "string",
-          "default": "--with-helper-class",
-          "description": "Switch used in ember-cli command for generating class-based helpers."
+          "default": ["--pod", "--typescript", "-gc"],
+          "description": "Options for generating a class component"
+        },
+        "emberGenerator.helperCommandOptions": {
+          "type": "string",
+          "default": ["--typescript"],
+          "description": "Switch used in ember-cli command for generating a function helper."
+        },
+        "emberGenerator.classHelperCommandOptions": {
+          "type": "string",
+          "default": ["--typescript"],
+          "description": "Switch used in ember-cli command for generating a class-based helper."
         }
       }
     }

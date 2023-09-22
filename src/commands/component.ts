@@ -4,9 +4,11 @@ import { invokeEmberCliCommand } from '../utils/ember-cli-adapter';
 import { resolveEntityData } from '../utils/entity-path';
 
 const config = vscode.workspace.getConfiguration('emberGenerator');
-const templateOnlyComponentSwitch = config.get('templateOnlyComponentSwitch') as string;
 
-export async function generateComponent(fileUri: vscode.Uri, opts?: {templateOnly: boolean}) {
+const componentCommandOptions = config.get('componentCommandOptions') as string;
+const classComponentCommandOptions = config.get('classComponentCommandOptions') as string;
+
+export async function generateComponent(fileUri: vscode.Uri, opts?: {withClass: boolean}) {
   const filePath = fileUri.path as string;
   const workspaceFolder = vscode.workspace.workspaceFolders?.find((workspaceFolder) => filePath.startsWith(workspaceFolder.uri.path));
   if (!workspaceFolder) {
@@ -44,8 +46,7 @@ export async function generateComponent(fileUri: vscode.Uri, opts?: {templateOnl
       'generate',
       'component',
       fullComponentPath,
-      '--pod'
+      ...(opts?.withClass ? classComponentCommandOptions : componentCommandOptions),
     ]
-    .concat(opts?.templateOnly ? templateOnlyComponentSwitch : [])
   );
 }
