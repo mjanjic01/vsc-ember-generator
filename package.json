@@ -1,6 +1,6 @@
 {
   "name": "vsc-ember-generator",
-  "description": "",
+  "description": "Create Ember components and helpers from within the VS Code file explorer.",
   "version": "0.0.4",
   "displayName": "Ember generator for VS Code",
   "publisher": "mjanjic",
