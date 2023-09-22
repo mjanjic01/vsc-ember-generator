@@ -2,8 +2,6 @@
 
 Ember component generator contextual menu
 
-Disclaimer: this is a codebase-specific extension, it will be modified and published in the future. But it's still useable now :)
-
 ## Features
 
 This extension adds options for generating Ember components and helpers to the contextual menu in the VS Code file explorer.
