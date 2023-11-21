@@ -76,12 +76,12 @@
       "properties": {
         "emberGenerator.componentCommandOptions": {
           "type": "string",
-          "default": ["--pod", "--typescript", "--no-component-class"],
+          "default": ["--typescript", "--no-component-class"],
           "description": "Options for generating a template-only component"
         },
         "emberGenerator.classComponentCommandOptions": {
           "type": "string",
-          "default": ["--pod", "--typescript", "-gc"],
+          "default": ["--typescript", "-gc"],
           "description": "Options for generating a class component"
         },
         "emberGenerator.helperCommandOptions": {
